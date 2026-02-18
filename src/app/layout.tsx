@@ -3,12 +3,17 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
-import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
+import {
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  SITE_URL,
+  BRAND_NAME,
+} from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: {
     default: SITE_NAME,
-    template: `%s | 5分KYTシート`,
+    template: `%s | ${BRAND_NAME}`,
   },
   description: SITE_DESCRIPTION,
   metadataBase: new URL(SITE_URL),
@@ -16,7 +21,7 @@ export const metadata: Metadata = {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
-    siteName: "5分KYTシート",
+    siteName: BRAND_NAME,
     locale: "ja_JP",
     type: "website",
   },

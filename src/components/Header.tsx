@@ -2,16 +2,19 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, PURCHASE_URL } from "@/lib/constants";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const ctaLabel = PURCHASE_URL ? "今すぐ購入" : "先行案内を受け取る";
+  const ctaHref = PURCHASE_URL || "/#pricing";
+
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-navy-100">
       <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-        <Link href="/" className="font-bold text-sm md:text-base text-gray-800">
-          5分KYTシート
+        <Link href="/" className="font-bold text-sm md:text-base text-navy-900">
+          今日も安全に！
         </Link>
 
         {/* Desktop nav */}
@@ -20,22 +23,28 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-gray-600 hover:text-primary-700 transition-colors"
+              className="text-sm text-navy-600 hover:text-primary-700 transition-colors"
             >
               {link.label}
             </Link>
           ))}
           <Link
-            href="/#cta"
-            className="text-sm bg-primary-700 text-white px-4 py-2 rounded hover:bg-primary-800 transition-colors"
+            href="/contact"
+            className="text-sm text-navy-600 hover:text-primary-700 transition-colors"
           >
-            無料で試す
+            法人相談
+          </Link>
+          <Link
+            href={ctaHref}
+            className="text-sm bg-primary-700 text-white px-4 py-2 rounded-md hover:bg-primary-800 transition-colors"
+          >
+            {ctaLabel}
           </Link>
         </nav>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 text-gray-600"
+          className="md:hidden p-2 text-navy-600"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="メニュー"
         >
@@ -51,23 +60,30 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <nav className="md:hidden border-t border-gray-200 bg-white px-4 pb-4">
+        <nav className="md:hidden border-t border-navy-100 bg-white px-4 pb-4">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="block py-2 text-sm text-gray-600 hover:text-primary-700"
+              className="block py-2 text-sm text-navy-600 hover:text-primary-700"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
             </Link>
           ))}
           <Link
-            href="/#cta"
-            className="block mt-2 text-center text-sm bg-primary-700 text-white px-4 py-2 rounded hover:bg-primary-800"
+            href="/contact"
+            className="block py-2 text-sm text-navy-600 hover:text-primary-700"
             onClick={() => setMenuOpen(false)}
           >
-            無料で試す
+            法人相談
+          </Link>
+          <Link
+            href={ctaHref}
+            className="block mt-2 text-center text-sm bg-primary-700 text-white px-4 py-2 rounded-md hover:bg-primary-800"
+            onClick={() => setMenuOpen(false)}
+          >
+            {ctaLabel}
           </Link>
         </nav>
       )}

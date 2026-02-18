@@ -40,16 +40,16 @@ export default function ContactPage() {
       </p>
 
       {status === "success" ? (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-          <p className="text-green-800 font-bold mb-1">送信完了</p>
-          <p className="text-green-700 text-sm">
+        <div className="bg-primary-50 border border-primary-200 rounded-lg p-6 text-center">
+          <p className="text-primary-900 font-bold mb-1">送信完了</p>
+          <p className="text-primary-800 text-sm">
             お問い合わせありがとうございます。内容を確認のうえ、メールにてご返信いたします。
           </p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="contact-name" className="block text-sm font-medium text-navy-700 mb-1">
               お名前 <span className="text-red-500">*</span>
             </label>
             <input
@@ -58,12 +58,12 @@ export default function ContactPage() {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+              className="w-full px-4 py-3 border border-navy-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
             />
           </div>
 
           <div>
-            <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="contact-email" className="block text-sm font-medium text-navy-700 mb-1">
               メールアドレス <span className="text-red-500">*</span>
             </label>
             <input
@@ -72,12 +72,12 @@ export default function ContactPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+              className="w-full px-4 py-3 border border-navy-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
             />
           </div>
 
           <div>
-            <label htmlFor="contact-facility" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="contact-facility" className="block text-sm font-medium text-navy-700 mb-1">
               施設名・法人名（任意）
             </label>
             <input
@@ -85,12 +85,12 @@ export default function ContactPage() {
               type="text"
               value={facility}
               onChange={(e) => setFacility(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+              className="w-full px-4 py-3 border border-navy-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
             />
           </div>
 
           <div>
-            <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="contact-message" className="block text-sm font-medium text-navy-700 mb-1">
               お問い合わせ内容 <span className="text-red-500">*</span>
             </label>
             <textarea
@@ -99,14 +99,14 @@ export default function ContactPage() {
               rows={5}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-y"
+              className="w-full px-4 py-3 border border-navy-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-y"
             />
           </div>
 
           <button
             type="submit"
             disabled={status === "sending"}
-            className="w-full md:w-auto px-8 py-3 bg-primary-700 text-white rounded font-bold text-sm hover:bg-primary-800 transition-colors disabled:opacity-60"
+            className="w-full md:w-auto px-8 py-3 bg-primary-700 text-white rounded-md font-bold text-sm hover:bg-primary-800 transition-colors disabled:opacity-60"
           >
             {status === "sending" ? "送信中..." : "送信する"}
           </button>

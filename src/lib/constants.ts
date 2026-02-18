@@ -1,13 +1,17 @@
-export const SITE_NAME = "5分KYTシート｜介護・福祉向け危険予知トレーニング";
+export const SITE_NAME = "今日も安全に！｜介護・福祉向け安全ミニ教材";
 export const SITE_DESCRIPTION =
-  "介護・福祉の現場で使える「5分で回せるKYTシート」スターター30。転倒・移乗・入浴・腰痛など、現場で多いヒヤリハットをそのまま使える形でお届けします。PDF＋PowerPoint＋進行台本＋記録テンプレート付き。";
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://kyt-sheet.example.com";
+  "介護・福祉の朝礼が「読むだけ」で回る安全ミニ教材（危険予知/KYT対応）。転倒・移乗・入浴・腰痛…よくあるヒヤリを「そのまま使える形」に。PDF30枚・PPT30枚・進行台本・記録テンプレ付き。";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://kiken-yochi-training.vercel.app";
 
-export const PRODUCT_NAME = "介護・福祉向け「5分で回せるKYTシート」スターター30";
+export const BRAND_NAME = "今日も安全に！";
+export const BRAND_SLUG = "kyomo-anzeni";
 
-// Stripe（将来実装用）
-// export const STRIPE_PRICE_ID = process.env.STRIPE_PRICE_ID || "";
-// export const STRIPE_PUBLIC_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY || "";
+export const PRODUCT_NAME =
+  "介護・福祉向け安全ミニ教材「今日も安全に！」スターター30";
+
+/** 販売URL（env で差し替え可能。未設定時は空 → 先行案内モードになる） */
+export const PURCHASE_URL = process.env.NEXT_PUBLIC_PURCHASE_URL || "";
 
 export const NAV_LINKS = [
   { href: "/#features", label: "特徴" },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import LeadForm from "@/components/LeadForm";
+import { PURCHASE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "ご購入",
@@ -36,9 +37,9 @@ export default function BuyPage() {
         &larr; トップページに戻る
       </Link>
 
-      <div className="bg-white rounded-xl border-2 border-gray-200 p-10 shadow-sm">
-        <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="bg-white rounded-2xl border border-navy-100 p-10 shadow-sm">
+        <div className="w-16 h-16 bg-navy-50 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg className="w-8 h-8 text-navy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -48,15 +49,24 @@ export default function BuyPage() {
           </svg>
         </div>
 
-        <h1 className="text-2xl font-bold text-gray-800 mb-3">購入ページ準備中</h1>
-        <p className="text-sm text-gray-500 mb-8 leading-relaxed">
-          「5分で回せるKYTシート」スターター30の販売は近日開始予定です。
+        <h1 className="text-2xl font-bold text-navy-900 mb-3">購入ページ準備中</h1>
+        <p className="text-sm text-navy-500 mb-8 leading-relaxed">
+          安全ミニ教材「今日も安全に！」スターター30の販売は近日開始予定です。
           <br />
           発売開始時に優先してご案内いたします。
         </p>
 
         <div className="max-w-sm mx-auto">
-          <LeadForm type="waitlist" />
+          {PURCHASE_URL ? (
+            <a
+              href={PURCHASE_URL}
+              className="inline-block w-full py-3 font-bold text-sm rounded-md bg-primary-700 text-white hover:bg-primary-800 transition-colors text-center"
+            >
+              今すぐ購入する
+            </a>
+          ) : (
+            <LeadForm />
+          )}
         </div>
       </div>
     </div>
