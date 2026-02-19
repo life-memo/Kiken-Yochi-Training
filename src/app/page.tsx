@@ -81,9 +81,14 @@ function Hero() {
             <br className="hidden md:block" />
             その力を育てる気づきトレーニング教材です。
           </p>
-          <p className="text-xs text-ink-400 max-w-lg mx-auto mb-10">
+          <p className="text-xs text-ink-400 max-w-lg mx-auto mb-4">
             個人向け・チーム向けの2プランをご用意。買い切り・追加課金なし。
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+            <span className="inline-block text-[11px] font-bold bg-sage-100 text-sage-700 border-2 border-sage-300 px-3 py-1 rounded-pop-sm">
+              福祉・介護向けコンテンツ配信中
+            </span>
+          </div>
         </FadeIn>
 
         <FadeIn delay={0.3}>
@@ -440,7 +445,7 @@ function Contents() {
     {
       icon: <FileText className="w-7 h-7" strokeWidth={2.5} />,
       title: "PDF（30テーマ）",
-      desc: "A4印刷でそのまま使える。転倒・移乗・入浴・腰痛・食事・感染症など主要テーマを網羅。",
+      desc: "A4印刷でそのまま使える。現在は福祉・介護向け30テーマ（転倒・移乗・入浴・腰痛・食事・感染症など）を収録。",
     },
     {
       icon: <Presentation className="w-7 h-7" strokeWidth={2.5} />,
@@ -576,7 +581,7 @@ function Pricing() {
       icon: <User className="w-6 h-6" strokeWidth={2.5} />,
       name: "ヒトリdeヨチトレ",
       sub: "じっくり集中。台本なしで自分の気づきを試す。",
-      price: "10,800",
+      price: "9,980",
       tax: "税抜",
       color: "bg-sage-50",
       borderColor: "border-sage-400",
