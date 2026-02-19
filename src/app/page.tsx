@@ -52,70 +52,173 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 /* ====== 1. Hero ====== */
 
+function HeroIllustration() {
+  return (
+    <div className="relative w-full max-w-sm mx-auto">
+      {/* Floating decorative elements */}
+      <motion.div
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-4 -left-4 z-10 w-10 h-10 bg-coral-500 border-3 border-ink-900 rounded-full flex items-center justify-center shadow-pop-sm"
+      >
+        <TriangleAlert className="w-5 h-5 text-white" strokeWidth={3} />
+      </motion.div>
+      <motion.div
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        className="absolute -bottom-3 -right-3 z-10 w-9 h-9 bg-sage-400 border-3 border-ink-900 rounded-full flex items-center justify-center shadow-pop-sm"
+      >
+        <Eye className="w-4 h-4 text-white" strokeWidth={3} />
+      </motion.div>
+
+      {/* Main card — KYT worksheet preview */}
+      <div className="border-3 border-ink-900 rounded-pop bg-white shadow-pop overflow-hidden transform rotate-1 md:rotate-2">
+        {/* Header */}
+        <div className="bg-sage-100 border-b-3 border-ink-900 px-4 py-2.5 flex items-center gap-2">
+          <Eye className="w-4 h-4 text-sage-600 shrink-0" strokeWidth={3} />
+          <span className="text-xs font-black text-ink-700">この場面の危険は？</span>
+        </div>
+
+        {/* Scene — SVG workplace illustration */}
+        <div className="relative bg-sage-50 p-2">
+          <svg viewBox="0 0 320 200" fill="none" className="w-full h-auto rounded-sm border-2 border-ink-200">
+            {/* Room */}
+            <rect width="320" height="200" fill="#f4f8f0" />
+            {/* Floor */}
+            <rect y="150" width="320" height="50" fill="#e8e0d4" />
+            <line x1="0" y1="150" x2="320" y2="150" stroke="#c8c0b4" strokeWidth="1.5" />
+
+            {/* Window */}
+            <rect x="20" y="20" width="60" height="50" rx="3" fill="#dceef8" stroke="#8ab0c8" strokeWidth="2" />
+            <line x1="50" y1="20" x2="50" y2="70" stroke="#8ab0c8" strokeWidth="1.5" />
+            <line x1="20" y1="45" x2="80" y2="45" stroke="#8ab0c8" strokeWidth="1.5" />
+
+            {/* Bed */}
+            <rect x="100" y="100" width="90" height="50" rx="4" fill="#fff" stroke="#888" strokeWidth="2" />
+            <rect x="100" y="100" width="25" height="50" rx="4" fill="#c8dce8" stroke="#888" strokeWidth="2" />
+            <rect x="100" y="145" width="90" height="8" rx="2" fill="#aaa" stroke="#888" strokeWidth="1.5" />
+
+            {/* Person on bed */}
+            <circle cx="118" cy="115" r="8" fill="#f5e0c0" stroke="#333" strokeWidth="1.5" />
+            <rect x="125" y="110" width="50" height="16" rx="3" fill="#a0c8a0" stroke="#333" strokeWidth="1.5" />
+
+            {/* Wheelchair */}
+            <circle cx="250" cy="165" r="15" fill="none" stroke="#666" strokeWidth="2.5" />
+            <circle cx="250" cy="165" r="3" fill="#666" />
+            <rect x="238" y="130" width="24" height="30" rx="3" fill="#4a7a9a" stroke="#333" strokeWidth="1.5" />
+            <line x1="262" y1="140" x2="272" y2="155" stroke="#666" strokeWidth="2.5" />
+
+            {/* Spill on floor */}
+            <ellipse cx="200" cy="172" rx="22" ry="7" fill="#a8d8f0" opacity="0.7" />
+            <ellipse cx="195" cy="175" rx="14" ry="4" fill="#90c8e8" opacity="0.5" />
+
+            {/* Walking person with cane */}
+            <circle cx="55" cy="118" r="9" fill="#f5e0c0" stroke="#333" strokeWidth="1.5" />
+            <rect x="48" y="128" width="14" height="24" rx="3" fill="#d4a080" stroke="#333" strokeWidth="1.5" />
+            <line x1="44" y1="152" x2="42" y2="175" stroke="#333" strokeWidth="2" />
+            <line x1="62" y1="152" x2="64" y2="175" stroke="#333" strokeWidth="2" />
+            <line x1="42" y1="135" x2="35" y2="178" stroke="#a08060" strokeWidth="2.5" strokeLinecap="round" />
+
+            {/* Hazard marker 1 — spill */}
+            <circle cx="200" cy="158" r="10" fill="#ef5350" stroke="#333" strokeWidth="2" />
+            <text x="200" y="163" textAnchor="middle" fontSize="11" fontWeight="800" fill="#fff">1</text>
+
+            {/* Hazard marker 2 — bed rail */}
+            <circle cx="155" cy="92" r="10" fill="#ef5350" stroke="#333" strokeWidth="2" />
+            <text x="155" y="97" textAnchor="middle" fontSize="11" fontWeight="800" fill="#fff">2</text>
+
+            {/* Hazard marker 3 — walking path */}
+            <circle cx="55" cy="100" r="10" fill="#ef5350" stroke="#333" strokeWidth="2" />
+            <text x="55" y="105" textAnchor="middle" fontSize="11" fontWeight="800" fill="#fff">3</text>
+          </svg>
+        </div>
+
+        {/* Footer */}
+        <div className="bg-rescue-50 border-t-3 border-ink-900 px-4 py-2.5 flex items-center justify-center gap-2">
+          <TriangleAlert className="w-3.5 h-3.5 text-coral-500 shrink-0" strokeWidth={3} />
+          <span className="text-[11px] font-bold text-ink-600">危険ポイントを見つけよう</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-sage-50 py-20 md:py-28 border-b-3 border-ink-900">
+    <section className="relative overflow-hidden bg-sage-50 py-16 md:py-24 border-b-3 border-ink-900">
       <div className="absolute top-10 right-10 w-32 h-32 bg-rescue-200 rounded-full opacity-30 blur-2xl" />
       <div className="absolute bottom-10 left-10 w-40 h-40 bg-sage-300 rounded-full opacity-30 blur-2xl" />
 
-      <div className="max-w-4xl mx-auto px-4 text-center relative">
-        <FadeIn>
-          <div className="inline-flex items-center gap-2 bg-white border-3 border-ink-900 rounded-pop-sm px-4 py-2 shadow-pop-sm mb-8">
-            <ShieldCheck className="w-4 h-4 text-sage-500" strokeWidth={3} />
-            <span className="text-xs font-bold text-ink-600">現場の安全気づきトレーニング</span>
-          </div>
-        </FadeIn>
+      <div className="max-w-6xl mx-auto px-4 relative">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+          {/* Left — Text */}
+          <div className="text-center md:text-left order-2 md:order-1">
+            <FadeIn>
+              <div className="inline-flex items-center gap-2 bg-white border-3 border-ink-900 rounded-pop-sm px-4 py-2 shadow-pop-sm mb-8">
+                <ShieldCheck className="w-4 h-4 text-sage-500" strokeWidth={3} />
+                <span className="text-xs font-bold text-ink-600">現場の安全気づきトレーニング</span>
+              </div>
+            </FadeIn>
 
-        <FadeIn delay={0.1}>
-          <h1 className="text-4xl md:text-6xl font-black text-ink-950 leading-tight mb-2 tracking-tight">
-            ヨチトレ
-          </h1>
-          <p className="text-sm md:text-base text-ink-400 font-black mb-5 tracking-widest">
-            危険<span className="text-coral-500 text-base md:text-lg">予知</span>
-            <span className="text-ink-300 mx-1.5">×</span>
-            <span className="text-coral-500 text-base md:text-lg">トレ</span>ーニング
-          </p>
-          <p className="text-lg md:text-xl font-bold text-sage-700 mb-6">
-            一人一人の安全意識を高める。事故を減らす気づきトレーニング。
-          </p>
-        </FadeIn>
+            <FadeIn delay={0.1}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-ink-950 leading-tight mb-2 tracking-tight">
+                ヨチトレ
+              </h1>
+              <p className="text-sm md:text-base text-ink-400 font-black mb-5 tracking-widest">
+                危険<span className="text-coral-500 text-base md:text-lg">予知</span>
+                <span className="text-ink-300 mx-1.5">×</span>
+                <span className="text-coral-500 text-base md:text-lg">トレ</span>ーニング
+              </p>
+              <p className="text-lg md:text-xl font-bold text-sage-700 mb-6">
+                一人一人の安全意識を高める。<br className="hidden sm:block" />事故を減らす気づきトレーニング。
+              </p>
+            </FadeIn>
 
-        <FadeIn delay={0.2}>
-          <p className="text-sm md:text-base text-ink-500 leading-relaxed max-w-xl mx-auto mb-4">
-            危険を予知する力を、くり返し鍛えるトレーニング教材。
-            <br className="hidden md:block" />
-            だから「ヨチトレ」。
-          </p>
-          <p className="text-xs text-ink-400 max-w-lg mx-auto mb-4">
-            個人向け・チーム向けの2タイプをご用意。買い切り・追加課金なし。
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-            <span className="inline-block text-[11px] font-bold bg-sage-100 text-sage-700 border-2 border-sage-300 px-3 py-1 rounded-pop-sm">
-              福祉・介護向けコンテンツ配信中
-            </span>
-          </div>
-        </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="text-sm md:text-base text-ink-500 leading-relaxed max-w-xl mb-4">
+                危険を予知する力を、くり返し鍛えるトレーニング教材。
+                <br className="hidden md:block" />
+                だから「ヨチトレ」。
+              </p>
+              <p className="text-xs text-ink-400 max-w-lg mb-4">
+                個人向け・チーム向けの2タイプをご用意。買い切り・追加課金なし。
+              </p>
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-10">
+                <span className="inline-block text-[11px] font-bold bg-sage-100 text-sage-700 border-2 border-sage-300 px-3 py-1 rounded-pop-sm">
+                  福祉・介護向けコンテンツ配信中
+                </span>
+              </div>
+            </FadeIn>
 
-        <FadeIn delay={0.3}>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.a
-              href="/#pricing"
-              whileHover={{ x: 2, y: 2 }}
-              whileTap={{ x: 4, y: 4 }}
-              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-4 text-base font-black border-3 border-ink-900 rounded-pop-sm bg-coral-500 text-white shadow-pop hover:shadow-pop-hover active:shadow-none transition-shadow"
-            >
-              <ShoppingCart className="w-5 h-5" strokeWidth={3} />
-              購入する
-            </motion.a>
-            <Link
-              href="/#sample"
-              className="inline-flex items-center gap-1 text-sm font-bold text-ink-500 hover:text-sage-700 transition-colors"
-            >
-              <Eye className="w-4 h-4" />
-              まずは体験してみる
-            </Link>
+            <FadeIn delay={0.3}>
+              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                <motion.a
+                  href="/#pricing"
+                  whileHover={{ x: 2, y: 2 }}
+                  whileTap={{ x: 4, y: 4 }}
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-4 text-base font-black border-3 border-ink-900 rounded-pop-sm bg-coral-500 text-white shadow-pop hover:shadow-pop-hover active:shadow-none transition-shadow"
+                >
+                  <ShoppingCart className="w-5 h-5" strokeWidth={3} />
+                  購入する
+                </motion.a>
+                <Link
+                  href="/#sample"
+                  className="inline-flex items-center gap-1 text-sm font-bold text-ink-500 hover:text-sage-700 transition-colors"
+                >
+                  <Eye className="w-4 h-4" />
+                  まずは体験してみる
+                </Link>
+              </div>
+            </FadeIn>
           </div>
-        </FadeIn>
+
+          {/* Right — Illustration */}
+          <div className="order-1 md:order-2">
+            <FadeIn delay={0.2}>
+              <HeroIllustration />
+            </FadeIn>
+          </div>
+        </div>
       </div>
     </section>
   );
