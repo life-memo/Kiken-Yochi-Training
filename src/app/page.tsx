@@ -70,10 +70,10 @@ function Hero() {
           <h1 className="text-4xl md:text-6xl font-black text-ink-950 leading-tight mb-2 tracking-tight">
             ヨチトレ
           </h1>
-          <p className="text-xs md:text-sm text-ink-400 font-bold mb-5 tracking-widest">
-            危険<span className="text-coral-500">予知</span>
-            <span className="text-ink-300 mx-1">×</span>
-            <span className="text-sage-600">トレ</span>ーニング
+          <p className="text-sm md:text-base text-ink-400 font-black mb-5 tracking-widest">
+            危険<span className="text-coral-500 text-base md:text-lg">予知</span>
+            <span className="text-ink-300 mx-1.5">×</span>
+            <span className="text-coral-500 text-base md:text-lg">トレ</span>ーニング
           </p>
           <p className="text-lg md:text-xl font-bold text-sage-700 mb-6">
             一人一人の安全意識を高める。事故を減らす気づきトレーニング。
