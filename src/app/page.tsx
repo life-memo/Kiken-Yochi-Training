@@ -62,7 +62,7 @@ function Hero() {
         <FadeIn>
           <div className="inline-flex items-center gap-2 bg-white border-3 border-ink-900 rounded-pop-sm px-4 py-2 shadow-pop-sm mb-8">
             <ShieldCheck className="w-4 h-4 text-sage-500" strokeWidth={3} />
-            <span className="text-xs font-bold text-ink-600">介護・事務の安全気づきトレーニング</span>
+            <span className="text-xs font-bold text-ink-600">現場の安全気づきトレーニング</span>
           </div>
         </FadeIn>
 
@@ -209,7 +209,7 @@ function StatsCards() {
       color: "bg-coral-50 text-coral-500",
       label: "2,546人",
       sub: "上半期・前年比+4%",
-      body: "福祉・介護の労働災害は増加傾向が続いている",
+      body: "労働災害は増加傾向。福祉・介護分野は特に顕著",
     },
     {
       icon: <AlertTriangle className="w-6 h-6" strokeWidth={3} />,
@@ -228,11 +228,11 @@ function StatsCards() {
   ];
 
   return (
-    <section id="why" className="py-16 md:py-20 bg-sage-50 border-y-3 border-ink-900 scroll-mt-16">
+    <section id="data" className="py-16 md:py-20 bg-sage-50 border-y-3 border-ink-900 scroll-mt-16">
       <div className="max-w-4xl mx-auto px-4">
         <FadeIn>
           <SectionHeading sub="厚生労働省データより">
-            なぜ今、気づきトレーニング？
+            データで見る労働災害
           </SectionHeading>
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -451,7 +451,7 @@ function Contents() {
       icon: <Mic className="w-7 h-7" strokeWidth={2.5} />,
       title: "読み上げ台本（5分/10分）",
       desc: "「何を言えばいいか分からない」を解決。台本どおりに読むだけで進行できます。",
-      badge: "みんなでプランのみ",
+      badge: "ミンナdeプランのみ",
     },
     {
       icon: <ClipboardCheck className="w-7 h-7" strokeWidth={2.5} />,
@@ -574,7 +574,7 @@ function Pricing() {
     {
       id: "solo",
       icon: <User className="w-6 h-6" strokeWidth={2.5} />,
-      name: "お一人でヨチトレ",
+      name: "ヒトリdeヨチトレ",
       sub: "じっくり集中。台本なしで自分の気づきを試す。",
       price: "10,800",
       tax: "税抜",
@@ -592,7 +592,7 @@ function Pricing() {
     {
       id: "team",
       icon: <Users className="w-6 h-6" strokeWidth={2.5} />,
-      name: "みんなでヨチトレ",
+      name: "ミンナdeヨチトレ",
       sub: "チームで意見交換。台本ありでディスカッションを円滑に。",
       price: "14,980",
       tax: "税抜",
@@ -690,11 +690,11 @@ function FAQ() {
   const faqs = [
     {
       q: "どのくらいの時間でできますか？",
-      a: "1回あたり5分で完結できるように設計しています。台本どおりに進行するだけでOK。10分版の台本も「みんなでヨチトレ」プランに付属しています。",
+      a: "1回あたり5分で完結できるように設計しています。台本どおりに進行するだけでOK。10分版の台本も「ミンナdeヨチトレ」プランに付属しています。",
     },
     {
-      q: "「お一人で」と「みんなで」の違いは？",
-      a: "「お一人でヨチトレ」は台本なしで自分のペースで取り組むプラン。「みんなでヨチトレ」は読み上げ台本付きでチームディスカッションがスムーズに回せるプランです。",
+      q: "「ヒトリde」と「ミンナde」の違いは？",
+      a: "「ヒトリdeヨチトレ」は台本なしで自分のペースで取り組むプラン。「ミンナdeヨチトレ」は読み上げ台本付きでチームディスカッションがスムーズに回せるプランです。",
     },
     {
       q: "印刷して使えますか？",
@@ -758,7 +758,7 @@ function Trust() {
               </li>
               <li className="flex gap-2">
                 <span className="text-ink-400 flex-shrink-0">&#x2022;</span>
-                シートの内容は一般的な介護現場のリスクを想定したものであり、すべての状況を網羅するものではありません。
+                シートの内容は一般的な現場のリスクを想定したものであり、すべての状況を網羅するものではありません。
               </li>
               <li className="flex gap-2">
                 <span className="text-ink-400 flex-shrink-0">&#x2022;</span>

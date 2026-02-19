@@ -1,6 +1,6 @@
 export const SITE_NAME = "ヨチトレ｜サクッと、安心。ヒヤリを減らす気づきトレ。";
 export const SITE_DESCRIPTION =
-  "介護・事務の朝礼がたった5分で回る安全気づきトレーニング教材。読むだけでヒヤリハットが減る。お一人プラン・チームプランの2種をご用意。";
+  "現場の朝礼がたった5分で回る安全気づきトレーニング教材。読むだけでヒヤリハットが減る。ヒトリdeヨチトレ・ミンナdeヨチトレの2種をご用意。";
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://kiken-yochi-training.vercel.app";
 
@@ -25,7 +25,7 @@ export const PLAN_B_URL =
 
 export const NAV_LINKS = [
   { href: "/#about", label: "ヨチトレとは" },
-  { href: "/#why", label: "なぜ今" },
+  { href: "/#data", label: "データで見る" },
   { href: "/#sample", label: "体験" },
   { href: "/#pricing", label: "プラン" },
   { href: "/#faq", label: "FAQ" },
