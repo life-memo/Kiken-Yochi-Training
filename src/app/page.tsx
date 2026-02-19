@@ -67,9 +67,14 @@ function Hero() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <h1 className="text-4xl md:text-6xl font-black text-ink-950 leading-tight mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-black text-ink-950 leading-tight mb-2 tracking-tight">
             ヨチトレ
           </h1>
+          <p className="text-xs md:text-sm text-ink-400 font-bold mb-5 tracking-widest">
+            危険<span className="text-coral-500">予知</span>
+            <span className="text-ink-300 mx-1">×</span>
+            <span className="text-sage-600">トレ</span>ーニング
+          </p>
           <p className="text-lg md:text-xl font-bold text-sage-700 mb-6">
             サクッと、安心。ヒヤリを減らす気づきトレ。
           </p>
@@ -77,9 +82,9 @@ function Hero() {
 
         <FadeIn delay={0.2}>
           <p className="text-sm md:text-base text-ink-500 leading-relaxed max-w-xl mx-auto mb-4">
-            仕事は毎回同じではないから、起こりうることを事前に想定する。
+            危険を予知する力を、くり返し鍛えるトレーニング教材。
             <br className="hidden md:block" />
-            その力を育てる気づきトレーニング教材です。
+            だから「ヨチトレ」。
           </p>
           <p className="text-xs text-ink-400 max-w-lg mx-auto mb-4">
             個人向け・チーム向けの2プランをご用意。買い切り・追加課金なし。
@@ -143,9 +148,24 @@ function AboutSection() {
     <section id="about" className="py-16 md:py-20 bg-white scroll-mt-16">
       <div className="max-w-4xl mx-auto px-4">
         <FadeIn>
-          <SectionHeading sub="KY（危険予知）活動の力を高めるトレーニング">
+          <SectionHeading sub="危険「予知」の力を高める「トレ」ーニング教材">
             ヨチトレとは
           </SectionHeading>
+        </FadeIn>
+
+        {/* Name origin card */}
+        <FadeIn delay={0.05}>
+          <div className="card-pop-sm p-4 md:p-5 mb-5 bg-sage-50 text-center">
+            <p className="text-sm md:text-base font-black text-ink-800 leading-relaxed">
+              <span className="text-coral-500">ヨチ</span>
+              <span className="text-ink-400 text-xs">（危険予知）</span>
+              <span className="mx-1">+</span>
+              <span className="text-sage-600">トレ</span>
+              <span className="text-ink-400 text-xs">（トレーニング）</span>
+              <span className="mx-1">=</span>
+              <span className="text-ink-900">ヨチトレ</span>
+            </p>
+          </div>
         </FadeIn>
 
         {/* Summary card */}
@@ -155,9 +175,9 @@ function AboutSection() {
               仕事は毎回同じではないため、
               <strong className="text-ink-900 font-black">起こり得ることを事前に想定</strong>
               して事故につなげないことが大事です。
-              作業前に危険・注意点・対策を洗い出すのが
-              <strong className="text-ink-900 font-black">KY（危険予知）活動</strong>。
-              その力を高める訓練が「ヨチトレ」です。
+              作業前に危険・注意点・対策を洗い出す
+              <strong className="text-ink-900 font-black">KY（危険予知）活動</strong>
+              ――その力を繰り返し鍛えるのが「ヨチトレ」です。
             </p>
           </div>
         </FadeIn>
