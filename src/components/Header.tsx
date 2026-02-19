@@ -43,7 +43,7 @@ export default function Header() {
             href={PURCHASE_URL}
             className="btn-pop bg-coral-500 text-white px-5 py-2 text-sm"
           >
-            今すぐ購入
+            プランを選ぶ
           </a>
         </nav>
 
@@ -89,7 +89,7 @@ export default function Header() {
               className="btn-pop bg-coral-500 text-white w-full mt-3 py-3 text-sm"
               onClick={() => setMenuOpen(false)}
             >
-              今すぐ購入
+              プランを選ぶ
             </a>
           </motion.nav>
         )}
