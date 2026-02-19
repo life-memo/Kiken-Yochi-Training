@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { Send, CheckCircle2 } from "lucide-react";
 import PageShell from "@/components/PageShell";
 
 export default function ContactPage() {
@@ -33,6 +34,9 @@ export default function ContactPage() {
     }
   };
 
+  const inputClass =
+    "w-full px-4 py-3 border-3 border-ink-200 rounded-pop-sm text-sm focus:ring-2 focus:ring-sage-400 focus:border-sage-400 outline-none bg-white transition-colors";
+
   return (
     <PageShell title="お問い合わせ">
       <p className="mb-6">
@@ -40,17 +44,18 @@ export default function ContactPage() {
       </p>
 
       {status === "success" ? (
-        <div className="bg-primary-50 border border-primary-200 rounded-lg p-6 text-center">
-          <p className="text-primary-900 font-bold mb-1">送信完了</p>
-          <p className="text-primary-800 text-sm">
+        <div className="card-pop p-6 text-center bg-sage-50">
+          <CheckCircle2 className="w-8 h-8 text-sage-600 mx-auto mb-2" strokeWidth={3} />
+          <p className="text-ink-900 font-black mb-1">送信完了</p>
+          <p className="text-ink-600 text-sm">
             お問い合わせありがとうございます。内容を確認のうえ、メールにてご返信いたします。
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label htmlFor="contact-name" className="block text-sm font-medium text-navy-700 mb-1">
-              お名前 <span className="text-red-500">*</span>
+            <label htmlFor="contact-name" className="block text-sm font-black text-ink-700 mb-1">
+              お名前 <span className="text-coral-500">*</span>
             </label>
             <input
               id="contact-name"
@@ -58,13 +63,13 @@ export default function ContactPage() {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-3 border border-navy-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+              className={inputClass}
             />
           </div>
 
           <div>
-            <label htmlFor="contact-email" className="block text-sm font-medium text-navy-700 mb-1">
-              メールアドレス <span className="text-red-500">*</span>
+            <label htmlFor="contact-email" className="block text-sm font-black text-ink-700 mb-1">
+              メールアドレス <span className="text-coral-500">*</span>
             </label>
             <input
               id="contact-email"
@@ -72,12 +77,12 @@ export default function ContactPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 border border-navy-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+              className={inputClass}
             />
           </div>
 
           <div>
-            <label htmlFor="contact-facility" className="block text-sm font-medium text-navy-700 mb-1">
+            <label htmlFor="contact-facility" className="block text-sm font-black text-ink-700 mb-1">
               施設名・法人名（任意）
             </label>
             <input
@@ -85,13 +90,13 @@ export default function ContactPage() {
               type="text"
               value={facility}
               onChange={(e) => setFacility(e.target.value)}
-              className="w-full px-4 py-3 border border-navy-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+              className={inputClass}
             />
           </div>
 
           <div>
-            <label htmlFor="contact-message" className="block text-sm font-medium text-navy-700 mb-1">
-              お問い合わせ内容 <span className="text-red-500">*</span>
+            <label htmlFor="contact-message" className="block text-sm font-black text-ink-700 mb-1">
+              お問い合わせ内容 <span className="text-coral-500">*</span>
             </label>
             <textarea
               id="contact-message"
@@ -99,20 +104,21 @@ export default function ContactPage() {
               rows={5}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full px-4 py-3 border border-navy-200 rounded-md text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-y"
+              className={`${inputClass} resize-y`}
             />
           </div>
 
           <button
             type="submit"
             disabled={status === "sending"}
-            className="w-full md:w-auto px-8 py-3 bg-primary-700 text-white rounded-md font-bold text-sm hover:bg-primary-800 transition-colors disabled:opacity-60"
+            className="btn-pop bg-sage-500 text-white px-8 py-3 text-sm gap-2 disabled:opacity-60"
           >
+            <Send className="w-4 h-4" strokeWidth={3} />
             {status === "sending" ? "送信中..." : "送信する"}
           </button>
 
           {status === "error" && (
-            <p className="text-red-600 text-xs">
+            <p className="text-coral-600 text-xs font-bold">
               送信に失敗しました。時間をおいて再度お試しください。
             </p>
           )}

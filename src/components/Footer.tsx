@@ -1,28 +1,34 @@
 import Link from "next/link";
-import { FOOTER_LINKS } from "@/lib/constants";
+import { ShieldCheck } from "lucide-react";
+import { FOOTER_LINKS, BRAND_CATCH } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-900 text-navy-300">
-      <div className="max-w-5xl mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-ink-950 text-ink-300 border-t-3 border-ink-900">
+      <div className="max-w-5xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <p className="font-bold text-white text-sm mb-2">今日も安全に！</p>
-            <p className="text-xs text-navy-400">
-              介護・福祉の朝礼が&quot;読むだけ&quot;で回る安全ミニ教材（危険予知/KYT対応）
+            <div className="flex items-center gap-2 mb-3">
+              <span className="w-8 h-8 rounded-pop-sm bg-sage-400 border-3 border-ink-700 flex items-center justify-center">
+                <ShieldCheck className="w-4 h-4 text-white" strokeWidth={3} />
+              </span>
+              <span className="font-black text-white text-base">ヨチトレ</span>
+            </div>
+            <p className="text-xs text-ink-400 leading-relaxed">
+              {BRAND_CATCH}
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <p className="font-bold text-white text-sm mb-2">リンク</p>
-            <ul className="space-y-1">
+            <p className="font-bold text-white text-sm mb-3">リンク</p>
+            <ul className="space-y-2">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs text-navy-400 hover:text-white transition-colors"
+                    className="text-xs text-ink-400 hover:text-sage-400 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -33,12 +39,12 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="font-bold text-white text-sm mb-2">お問い合わせ</p>
-            <p className="text-xs text-navy-400">
+            <p className="font-bold text-white text-sm mb-3">お問い合わせ</p>
+            <p className="text-xs text-ink-400 leading-relaxed">
               法人でのご利用・請求書払いなど、
               <br />
               お気軽に
-              <Link href="/contact" className="underline hover:text-white">
+              <Link href="/contact" className="underline hover:text-sage-400 transition-colors">
                 お問い合わせ
               </Link>
               ください。
@@ -46,8 +52,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-navy-700 mt-8 pt-6 text-center text-xs text-navy-500">
-          &copy; {new Date().getFullYear()} 今日も安全に！ All rights reserved.
+        <div className="border-t border-ink-800 mt-10 pt-6 text-center text-xs text-ink-500">
+          &copy; {new Date().getFullYear()} ヨチトレ All rights reserved.
         </div>
       </div>
     </footer>

@@ -9,7 +9,7 @@ export default function PrivacyPage() {
   return (
     <PageShell title="プライバシーポリシー">
       <p>
-        本プライバシーポリシーは、今日も安全に！（以下「当サービス」）が取得・利用するお客様の個人情報の取り扱いについて定めるものです。
+        本プライバシーポリシーは、ヨチトレ（以下「当サービス」）が取得・利用するお客様の個人情報の取り扱いについて定めるものです。
       </p>
 
       <h2>1. 取得する情報</h2>
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
       <h2>7. お問い合わせ</h2>
       <p>
         個人情報の取り扱いに関するお問い合わせは、
-        <a href="/contact" className="text-primary-700 underline">
+        <a href="/contact" className="text-sage-600 underline font-bold">
           お問い合わせページ
         </a>
         よりご連絡ください。

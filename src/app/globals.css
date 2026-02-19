@@ -2,19 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap");
+
 :root {
-  --background: #f8fafb;
-  --foreground: #102a43;
+  --background: #f8f9fa;
+  --foreground: #1a1d23;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Modern Industrial Pop — base card style */
+@layer components {
+  .card-pop {
+    @apply bg-white border-3 border-ink-900 rounded-pop shadow-pop;
+  }
+  .card-pop-sm {
+    @apply bg-white border-3 border-ink-900 rounded-pop-sm shadow-pop-sm;
+  }
+  .btn-pop {
+    @apply inline-flex items-center justify-center font-bold border-3 border-ink-900 rounded-pop-sm shadow-pop transition-all duration-150;
+  }
+  .btn-pop:hover {
+    @apply shadow-pop-hover translate-x-[2px] translate-y-[2px];
+  }
+  .btn-pop:active {
+    @apply shadow-none translate-x-[4px] translate-y-[4px];
+  }
 }
 
 @layer utilities {

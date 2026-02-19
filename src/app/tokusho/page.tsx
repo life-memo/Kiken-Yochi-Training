@@ -18,7 +18,7 @@ export default function TokushoPage() {
               ["電話番号", "【電話番号を入力】※お問い合わせはメールにて承ります"],
               ["メールアドレス", "【メールアドレスを入力】"],
               ["販売URL", "【サイトURLを入力】"],
-              ["商品名", "介護・福祉向け安全ミニ教材「今日も安全に！」スターター30"],
+              ["商品名", "安全気づきトレーニング教材「ヨチトレ」スターター30"],
               ["販売価格", "商品ページに記載（税込価格を表示）"],
               ["商品代金以外の必要料金", "なし（インターネット接続料はお客様のご負担となります）"],
               ["支払方法", "クレジットカード決済（Visa / Mastercard / American Express / JCB）"],
@@ -30,14 +30,14 @@ export default function TokushoPage() {
               ],
               [
                 "動作環境",
-                "PDF：Adobe Acrobat Reader等のPDF閲覧ソフト / PowerPoint：Microsoft PowerPoint 2016以降 または互換ソフト",
+                "PDF：Adobe Acrobat Reader等のPDF閲覧ソフト / スライド：Microsoft PowerPoint 2016以降 または互換ソフト",
               ],
             ].map(([label, value]) => (
-              <tr key={label} className="border-b border-navy-100">
-                <th className="py-3 pr-4 text-left font-medium text-navy-700 align-top whitespace-nowrap w-40">
+              <tr key={label} className="border-b border-ink-100">
+                <th className="py-3 pr-4 text-left font-black text-ink-700 align-top whitespace-nowrap w-40">
                   {label}
                 </th>
-                <td className="py-3 text-navy-600">{value}</td>
+                <td className="py-3 text-ink-600">{value}</td>
               </tr>
             ))}
           </tbody>
