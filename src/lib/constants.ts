@@ -10,11 +10,15 @@ export const BRAND_SLUG = "kyomo-anzeni";
 export const PRODUCT_NAME =
   "介護・福祉向け安全ミニ教材「今日も安全に！」スターター30";
 
-/** 販売URL（env で差し替え可能。未設定時は空 → 先行案内モードになる） */
-export const PURCHASE_URL = process.env.NEXT_PUBLIC_PURCHASE_URL || "";
+/** 外部決済URL（Stripe Payment Link 等） */
+export const PURCHASE_URL =
+  process.env.NEXT_PUBLIC_PURCHASE_URL || "/#pricing";
+
+/** 税込価格（表示用） */
+export const PRICE_YEN = process.env.NEXT_PUBLIC_PRICE_YEN || "2,980";
 
 export const NAV_LINKS = [
-  { href: "/#features", label: "特徴" },
+  { href: "/#stats", label: "なぜ今" },
   { href: "/#contents", label: "内容" },
   { href: "/#usage", label: "使い方" },
   { href: "/#pricing", label: "価格" },

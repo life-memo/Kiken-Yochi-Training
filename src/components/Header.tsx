@@ -7,9 +7,6 @@ import { NAV_LINKS, PURCHASE_URL } from "@/lib/constants";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const ctaLabel = PURCHASE_URL ? "今すぐ購入" : "先行案内を受け取る";
-  const ctaHref = PURCHASE_URL || "/#pricing";
-
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-navy-100">
       <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
@@ -34,12 +31,12 @@ export default function Header() {
           >
             法人相談
           </Link>
-          <Link
-            href={ctaHref}
+          <a
+            href={PURCHASE_URL}
             className="text-sm bg-primary-700 text-white px-4 py-2 rounded-md hover:bg-primary-800 transition-colors"
           >
-            {ctaLabel}
-          </Link>
+            今すぐ購入
+          </a>
         </nav>
 
         {/* Mobile hamburger */}
@@ -78,13 +75,13 @@ export default function Header() {
           >
             法人相談
           </Link>
-          <Link
-            href={ctaHref}
+          <a
+            href={PURCHASE_URL}
             className="block mt-2 text-center text-sm bg-primary-700 text-white px-4 py-2 rounded-md hover:bg-primary-800"
             onClick={() => setMenuOpen(false)}
           >
-            {ctaLabel}
-          </Link>
+            今すぐ購入
+          </a>
         </nav>
       )}
     </header>
