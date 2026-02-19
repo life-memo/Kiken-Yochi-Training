@@ -76,7 +76,7 @@ function Hero() {
             <span className="text-sage-600">トレ</span>ーニング
           </p>
           <p className="text-lg md:text-xl font-bold text-sage-700 mb-6">
-            サクッと、安心。ヒヤリを減らす気づきトレ。
+            一人一人の安全意識を高める。事故を減らす気づきトレーニング。
           </p>
         </FadeIn>
 
@@ -87,7 +87,7 @@ function Hero() {
             だから「ヨチトレ」。
           </p>
           <p className="text-xs text-ink-400 max-w-lg mx-auto mb-4">
-            個人向け・チーム向けの2プランをご用意。買い切り・追加課金なし。
+            個人向け・チーム向けの2タイプをご用意。買い切り・追加課金なし。
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
             <span className="inline-block text-[11px] font-bold bg-sage-100 text-sage-700 border-2 border-sage-300 px-3 py-1 rounded-pop-sm">
@@ -105,7 +105,7 @@ function Hero() {
               className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-4 text-base font-black border-3 border-ink-900 rounded-pop-sm bg-coral-500 text-white shadow-pop hover:shadow-pop-hover active:shadow-none transition-shadow"
             >
               <ShoppingCart className="w-5 h-5" strokeWidth={3} />
-              プランを選ぶ
+              購入する
             </motion.a>
             <Link
               href="/#sample"
@@ -476,7 +476,7 @@ function Contents() {
       icon: <Mic className="w-7 h-7" strokeWidth={2.5} />,
       title: "読み上げ台本（5分/10分）",
       desc: "「何を言えばいいか分からない」を解決。台本どおりに読むだけで進行できます。",
-      badge: "ミンナdeプランのみ",
+      badge: "ミンナdeのみ",
     },
     {
       icon: <ClipboardCheck className="w-7 h-7" strokeWidth={2.5} />,
@@ -639,7 +639,7 @@ function Pricing() {
     <section id="pricing" className="py-16 md:py-20 bg-sage-50 border-y-3 border-ink-900 scroll-mt-16">
       <div className="max-w-4xl mx-auto px-4">
         <FadeIn>
-          <SectionHeading>プラン</SectionHeading>
+          <SectionHeading>料金・タイプ</SectionHeading>
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {plans.map((plan, i) => (
@@ -692,7 +692,7 @@ function Pricing() {
                     className={`w-full inline-flex items-center justify-center gap-2 py-3.5 text-sm font-black border-3 border-ink-900 rounded-pop-sm ${plan.btnBg} text-white shadow-pop hover:shadow-pop-hover active:shadow-none transition-shadow`}
                   >
                     <ShoppingCart className="w-4 h-4" strokeWidth={3} />
-                    このプランを購入する
+                    購入する
                   </motion.a>
                 </div>
               </div>
@@ -715,11 +715,11 @@ function FAQ() {
   const faqs = [
     {
       q: "どのくらいの時間でできますか？",
-      a: "1回あたり5分で完結できるように設計しています。台本どおりに進行するだけでOK。10分版の台本も「ミンナdeヨチトレ」プランに付属しています。",
+      a: "1回あたり5分で完結できるように設計しています。台本どおりに進行するだけでOK。10分版の台本も「ミンナdeヨチトレ」に付属しています。",
     },
     {
       q: "「ヒトリde」と「ミンナde」の違いは？",
-      a: "「ヒトリdeヨチトレ」は台本なしで自分のペースで取り組むプラン。「ミンナdeヨチトレ」は読み上げ台本付きでチームディスカッションがスムーズに回せるプランです。",
+      a: "「ヒトリdeヨチトレ」は台本なしで自分のペースで取り組むタイプ。「ミンナdeヨチトレ」は読み上げ台本付きでチームディスカッションがスムーズに回せるタイプです。",
     },
     {
       q: "印刷して使えますか？",

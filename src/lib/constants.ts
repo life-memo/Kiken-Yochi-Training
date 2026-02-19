@@ -1,4 +1,4 @@
-export const SITE_NAME = "ヨチトレ｜サクッと、安心。ヒヤリを減らす気づきトレ。";
+export const SITE_NAME = "ヨチトレ｜一人一人の安全意識を高める。事故を減らす気づきトレーニング。";
 export const SITE_DESCRIPTION =
   "現場の朝礼がたった5分で回る安全気づきトレーニング教材。読むだけでヒヤリハットが減る。ヒトリdeヨチトレ・ミンナdeヨチトレの2種をご用意。";
 export const SITE_URL =
@@ -6,7 +6,7 @@ export const SITE_URL =
 
 export const BRAND_NAME = "ヨチトレ";
 export const BRAND_SLUG = "yochitore";
-export const BRAND_CATCH = "サクッと、安心。ヒヤリを減らす気づきトレ。";
+export const BRAND_CATCH = "一人一人の安全意識を高める。事故を減らす気づきトレーニング。";
 
 export const PRODUCT_NAME =
   "安全気づきトレーニング教材「ヨチトレ」";
@@ -27,7 +27,7 @@ export const NAV_LINKS = [
   { href: "/#about", label: "ヨチトレとは" },
   { href: "/#data", label: "データで見る" },
   { href: "/#sample", label: "体験" },
-  { href: "/#pricing", label: "プラン" },
+  { href: "/#pricing", label: "料金" },
   { href: "/#faq", label: "FAQ" },
 ] as const;
 
