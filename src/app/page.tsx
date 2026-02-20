@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
   TrendingUp,
@@ -91,78 +92,103 @@ function Hero() {
         background: "radial-gradient(ellipse 60% 50% at 80% 80%, rgba(44,110,73,0.06), transparent)",
       }}
     >
-      <div className="max-w-[var(--max-width-base)] mx-auto px-5 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.1 }}
-        >
-          <span className="glass-badge inline-block rounded-pill px-4 py-1.5 text-sm font-medium text-primary mb-8">
-            福祉・介護向けコンテンツ配信中
-          </span>
-        </motion.div>
+      <div className="max-w-[var(--max-width-base)] mx-auto px-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Left: Text */}
+          <div className="text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+            >
+              <span className="glass-badge inline-block rounded-pill px-4 py-1.5 text-sm font-medium text-primary mb-8">
+                福祉・介護向けコンテンツ配信中
+              </span>
+            </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.2 }}
-        >
-          <p className="text-sm tracking-[0.15em] text-mute font-medium mb-5">
-            危険予知 × トレーニング
-          </p>
-          <h1
-            className="font-black text-main leading-[1.2] tracking-[-0.03em] mb-6"
-            style={{ fontSize: "clamp(2.5rem, 5.5vw, 3.75rem)" }}
-          >
-            「危ない」と
-            <br />
-            <span className="text-primary">気づける</span>人を、
-            <br />
-            増やす。
-          </h1>
-        </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.2 }}
+            >
+              <p className="text-sm tracking-[0.15em] text-mute font-medium mb-5">
+                危険<span className="text-accent font-bold">予知</span> × <span className="text-accent font-bold">トレ</span>ーニング
+              </p>
+              <h1
+                className="font-black text-main leading-[1.2] tracking-[-0.03em] mb-6"
+                style={{ fontSize: "clamp(2.5rem, 5.5vw, 3.75rem)" }}
+              >
+                「危ない」と
+                <br />
+                <span className="text-primary">気づける</span>人を、
+                <br />
+                増やす。
+              </h1>
+            </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.4 }}
-        >
-          <p className="text-base md:text-lg text-sub leading-[1.8] max-w-xl mx-auto mb-8">
-            事故を減らすには、設備やルールより先に、
-            一人ひとりの「気づく力」が必要です。
-            ヨチトレは、具体的な現場シーンで繰り返し鍛える
-            危険予知トレーニング教材です。
-          </p>
-        </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.4 }}
+            >
+              <p className="text-base md:text-lg text-sub leading-[1.8] max-w-xl mx-auto lg:mx-0 mb-8">
+                事故を減らすには、設備やルールより先に、
+                一人ひとりの「気づく力」が必要です。
+                ヨチトレは、具体的な現場シーンで繰り返し鍛える
+                危険予知トレーニング教材です。
+              </p>
+            </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <a
-            href="/#sample"
-            className="btn-cta px-8 py-3.5 text-lg font-bold w-full sm:w-auto"
-            aria-label="ヨチトレを体験してみる"
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.6 }}
+              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4"
+            >
+              <a
+                href="/#sample"
+                className="btn-cta px-8 py-3.5 text-lg font-bold w-full sm:w-auto"
+                aria-label="ヨチトレを体験してみる"
+              >
+                <Eye className="w-5 h-5" />
+                まずは体験してみる
+              </a>
+              <Link
+                href="/#pricing"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-sub hover:text-primary transition-colors"
+              >
+                購入・料金を見る
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Right: KYT Training Photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="relative order-first lg:order-last"
           >
-            <Eye className="w-5 h-5" />
-            まずは体験してみる
-          </a>
-          <Link
-            href="/#pricing"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-sub hover:text-primary transition-colors"
-          >
-            購入・料金を見る
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </motion.div>
+            <div className="relative rounded-card-xl overflow-hidden shadow-card">
+              <Image
+                src="/images/kyt-training.jpg"
+                alt="危険予知トレーニングの様子 — スタッフがテーブルを囲んでKYT研修を行っている"
+                width={640}
+                height={427}
+                className="w-full h-auto object-cover"
+                priority
+              />
+              <div className="absolute inset-0 rounded-card-xl ring-1 ring-inset ring-black/5" />
+            </div>
+          </motion.div>
+        </div>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.55, delay: 1.0 }}
-          className="mt-14 text-xs text-mute animate-bounce"
+          className="mt-14 text-xs text-mute animate-bounce text-center"
         >
           ↓ scroll
         </motion.p>
