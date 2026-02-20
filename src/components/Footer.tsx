@@ -1,21 +1,17 @@
 import Link from "next/link";
-import { ShieldCheck } from "lucide-react";
 import { FOOTER_LINKS, BRAND_CATCH } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer className="bg-ink-950 text-ink-300 border-t-3 border-ink-900">
-      <div className="max-w-5xl mx-auto px-4 py-12">
+    <footer className="bg-main text-mute">
+      <div className="max-w-[1100px] mx-auto px-5 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="w-8 h-8 rounded-pop-sm bg-sage-400 border-3 border-ink-700 flex items-center justify-center">
-                <ShieldCheck className="w-4 h-4 text-white" strokeWidth={3} />
-              </span>
-              <span className="font-black text-white text-base">ヨチトレ</span>
-            </div>
-            <p className="text-xs text-ink-400 leading-relaxed">
+            <span className="font-black text-white text-lg tracking-tight">
+              ヨチトレ
+            </span>
+            <p className="mt-2 text-sm leading-relaxed opacity-70">
               {BRAND_CATCH}
             </p>
           </div>
@@ -28,7 +24,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs text-ink-400 hover:text-sage-400 transition-colors"
+                    className="text-sm opacity-60 hover:opacity-100 hover:text-primary-light transition-all"
                   >
                     {link.label}
                   </Link>
@@ -40,11 +36,11 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <p className="font-bold text-white text-sm mb-3">お問い合わせ</p>
-            <p className="text-xs text-ink-400 leading-relaxed">
+            <p className="text-sm leading-relaxed opacity-60">
               法人でのご利用・請求書払いなど、
               <br />
               お気軽に
-              <Link href="/contact" className="underline hover:text-sage-400 transition-colors">
+              <Link href="/contact" className="underline hover:opacity-100 hover:text-primary-light transition-all">
                 お問い合わせ
               </Link>
               ください。
@@ -52,7 +48,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-ink-800 mt-10 pt-6 text-center text-xs text-ink-500">
+        <div className="border-t border-white/10 mt-10 pt-6 text-center text-xs opacity-40">
           &copy; {new Date().getFullYear()} ヨチトレ All rights reserved.
         </div>
       </div>

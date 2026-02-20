@@ -2,23 +2,128 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap");
 
+/* ====== CSS Custom Properties ====== */
 :root {
-  --background: #f8f9fa;
-  --foreground: #1a1d23;
-}
+  --color-bg: #F7F9F7;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #EFF4EF;
 
-body {
-  color: var(--foreground);
-  background: var(--background);
+  --color-primary: #2C6E49;
+  --color-primary-light: #4A9970;
+
+  --color-accent: #E8532A;
+  --color-accent-hover: #C94420;
+
+  --color-text: #1A2820;
+  --color-text-sub: #4A5D53;
+  --color-text-mute: #7A9485;
+
+  --color-border: #D4E2D8;
+
+  --color-danger: #C94420;
+  --color-badge-bg: #FFF3EF;
+
+  --section-padding-y: clamp(4rem, 8vw, 7rem);
+  --max-width-base: 1100px;
+  --max-width-narrow: 760px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Modern Industrial Pop — base card style */
+body {
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* ====== Focus indicators (accessibility) ====== */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ====== Reduced motion ====== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ====== New design system components ====== */
+@layer components {
+  /* Cards */
+  .card-clean {
+    @apply bg-surface rounded-card-xl border border-line shadow-card;
+  }
+  .card-clean-sm {
+    @apply bg-surface rounded-card-lg border border-line shadow-card;
+  }
+
+  /* Primary CTA button */
+  .btn-cta {
+    @apply inline-flex items-center justify-center gap-2 font-bold text-white rounded-card
+           transition-all duration-200 cursor-pointer border-none;
+    background: var(--color-accent);
+    box-shadow: 0 4px 16px rgba(232, 83, 42, 0.25);
+  }
+  .btn-cta:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232, 83, 42, 0.35);
+  }
+  .btn-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(232, 83, 42, 0.2);
+  }
+
+  /* Glassmorphism badges */
+  .glass-badge {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 8px rgba(44, 110, 73, 0.12);
+  }
+  .glass-badge-accent {
+    background: rgba(232, 83, 42, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(232, 83, 42, 0.3);
+  }
+  .glass-badge-primary {
+    background: rgba(44, 110, 73, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(44, 110, 73, 0.25);
+  }
+
+  /* Glassmorphism nav */
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(212, 226, 216, 0.6);
+    box-shadow: 0 2px 16px rgba(44, 110, 73, 0.06);
+  }
+}
+
+/* ====== Legacy components (kept for non-landing pages) ====== */
 @layer components {
   .card-pop {
     @apply bg-white border-3 border-ink-900 rounded-pop shadow-pop;

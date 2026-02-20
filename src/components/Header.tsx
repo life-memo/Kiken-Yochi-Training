@@ -1,47 +1,58 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ShieldCheck } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { NAV_LINKS, PURCHASE_URL } from "@/lib/constants";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b-3 border-ink-900">
-      <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? "glass-nav" : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-[1100px] mx-auto px-5 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="w-9 h-9 rounded-pop-sm bg-sage-400 border-3 border-ink-900 flex items-center justify-center shadow-pop-sm group-hover:shadow-pop-hover group-hover:translate-x-[2px] group-hover:translate-y-[2px] transition-all">
-            <ShieldCheck className="w-5 h-5 text-white" strokeWidth={3} />
-          </span>
-          <span className="font-black text-lg text-ink-950 tracking-tight">
+        <Link href="/" className="flex items-center gap-1.5">
+          <span className="text-xl font-black text-primary tracking-tight">
             ヨチトレ
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-5">
+        <nav className="hidden lg:flex items-center gap-6">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-bold text-ink-600 hover:text-sage-600 transition-colors"
+              className="text-sm font-medium text-sub hover:text-primary transition-colors"
             >
               {link.label}
             </Link>
           ))}
+          <span className="w-px h-5 bg-line" />
           <Link
             href="/contact"
-            className="text-sm font-bold text-ink-600 hover:text-sage-600 transition-colors"
+            className="text-sm font-medium text-sub hover:text-primary transition-colors"
           >
             法人相談
           </Link>
           <a
             href={PURCHASE_URL}
-            className="btn-pop bg-coral-500 text-white px-5 py-2 text-sm"
+            className="btn-cta px-5 py-2 text-sm"
+            aria-label="ヨチトレを購入する"
           >
             購入する
           </a>
@@ -49,11 +60,11 @@ export default function Header() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 text-ink-800"
+          className="lg:hidden p-2 text-main"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="メニュー"
         >
-          {menuOpen ? <X className="w-6 h-6" strokeWidth={3} /> : <Menu className="w-6 h-6" strokeWidth={3} />}
+          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
@@ -65,13 +76,13 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden overflow-hidden border-t-3 border-ink-900 bg-white px-4 pb-4"
+            className="lg:hidden overflow-hidden bg-surface border-t border-line px-5 pb-5"
           >
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-3 text-sm font-bold text-ink-700 hover:text-sage-600 border-b border-ink-100"
+                className="block py-3 text-sm font-medium text-sub hover:text-primary border-b border-line/50"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
@@ -79,15 +90,16 @@ export default function Header() {
             ))}
             <Link
               href="/contact"
-              className="block py-3 text-sm font-bold text-ink-700 hover:text-sage-600 border-b border-ink-100"
+              className="block py-3 text-sm font-medium text-sub hover:text-primary border-b border-line/50"
               onClick={() => setMenuOpen(false)}
             >
               法人相談
             </Link>
             <a
               href={PURCHASE_URL}
-              className="btn-pop bg-coral-500 text-white w-full mt-3 py-3 text-sm"
+              className="btn-cta w-full mt-4 py-3 text-sm"
               onClick={() => setMenuOpen(false)}
+              aria-label="ヨチトレを購入する"
             >
               購入する
             </a>
