@@ -24,15 +24,14 @@ import {
   Eye,
   Footprints,
   Megaphone,
-  BrainCircuit,
   TriangleAlert,
   ArrowRight,
-  Info,
   ShoppingCart,
+  RefreshCw,
+  Zap,
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import ImageModal from "@/components/ImageModal";
-import PurchaseButton from "@/components/PurchaseButton";
 import { PLAN_A_URL, PLAN_B_URL } from "@/lib/constants";
 
 /* ====== Shared ====== */
@@ -67,27 +66,24 @@ function Hero() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <h1 className="text-4xl md:text-6xl font-black text-ink-950 leading-tight mb-2 tracking-tight">
-            ヨチトレ
-          </h1>
-          <p className="text-sm md:text-base text-ink-400 font-black mb-5 tracking-widest">
+          <p className="text-sm md:text-base text-ink-400 font-black mb-4 tracking-widest">
             危険<span className="text-coral-500 text-base md:text-lg">予知</span>
             <span className="text-ink-300 mx-1.5">×</span>
             <span className="text-coral-500 text-base md:text-lg">トレ</span>ーニング
           </p>
-          <p className="text-lg md:text-xl font-bold text-sage-700 mb-6">
-            一人一人の安全意識を高める。事故を減らす気づきトレーニング。
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={0.2}>
+          <h1 className="text-3xl md:text-5xl font-black text-ink-950 leading-tight mb-6 tracking-tight">
+            「危ない」と気づける人を、
+            <br />
+            増やす。
+          </h1>
           <p className="text-sm md:text-base text-ink-500 leading-relaxed max-w-xl mx-auto mb-4">
-            危険を予知する力を、くり返し鍛えるトレーニング教材。
+            事故を減らすには、設備やルールより先に、
             <br className="hidden md:block" />
-            だから「ヨチトレ」。
-          </p>
-          <p className="text-xs text-ink-400 max-w-lg mx-auto mb-4">
-            個人向け・チーム向けの2タイプをご用意。買い切り・追加課金なし。
+            一人ひとりの「気づく力」が必要です。
+            <br />
+            ヨチトレは、具体的な現場シーンで繰り返し鍛える
+            <br className="hidden md:block" />
+            危険予知トレーニング教材です。
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
             <span className="inline-block text-[11px] font-bold bg-sage-100 text-sage-700 border-2 border-sage-300 px-3 py-1 rounded-pop-sm">
@@ -96,23 +92,23 @@ function Hero() {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.3}>
+        <FadeIn delay={0.2}>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a
-              href="/#pricing"
+              href="/#sample"
               whileHover={{ x: 2, y: 2 }}
               whileTap={{ x: 4, y: 4 }}
               className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-4 text-base font-black border-3 border-ink-900 rounded-pop-sm bg-coral-500 text-white shadow-pop hover:shadow-pop-hover active:shadow-none transition-shadow"
             >
-              <ShoppingCart className="w-5 h-5" strokeWidth={3} />
-              購入する
+              <Eye className="w-5 h-5" strokeWidth={3} />
+              まずは体験してみる
             </motion.a>
             <Link
-              href="/#sample"
+              href="/#pricing"
               className="inline-flex items-center gap-1 text-sm font-bold text-ink-500 hover:text-sage-700 transition-colors"
             >
-              <Eye className="w-4 h-4" />
-              まずは体験してみる
+              <ShoppingCart className="w-4 h-4" />
+              購入・料金を見る
             </Link>
           </div>
         </FadeIn>
@@ -121,26 +117,96 @@ function Hero() {
   );
 }
 
-/* ====== 2. ヨチトレとは ====== */
+/* ====== 2. Problem（新規） ====== */
 
-function AboutSection() {
-  const [detailOpen, setDetailOpen] = useState(false);
+function Problem() {
+  return (
+    <section className="py-16 md:py-20 bg-white">
+      <div className="max-w-3xl mx-auto px-4">
+        <FadeIn>
+          <h2 className="text-xl md:text-2xl font-black text-ink-950 text-center leading-relaxed tracking-tight mb-8">
+            なぜ、現場の事故は
+            <br className="md:hidden" />
+            なくならないのか。
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <div className="text-sm md:text-base text-ink-600 leading-loose text-center space-y-4">
+            <p>
+              ルールはある。設備も整えた。でも事故は起きる。
+            </p>
+            <p>
+              それは、「一人ひとりが危険を危険と感じる力」が
+              <br className="hidden md:block" />
+              十分に育っていないからかもしれません。
+            </p>
+            <p>
+              マニュアルを読んで頭では分かっていても、
+              <br className="hidden md:block" />
+              実際の現場で「あ、これ危ないかも」と
+              <br className="hidden md:block" />
+              瞬時に気づくことができるかどうか——
+              <br />
+              そこに、大きな差があります。
+            </p>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
 
-  const details = [
+/* ====== 3. Why（新規） ====== */
+
+function Why() {
+  return (
+    <section className="py-16 md:py-20 bg-sage-50 border-y-3 border-ink-900">
+      <div className="max-w-3xl mx-auto px-4">
+        <FadeIn>
+          <h2 className="text-xl md:text-2xl font-black text-ink-950 text-center leading-relaxed tracking-tight mb-8">
+            「気づく力」は、繰り返しで育つ。
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <div className="text-sm md:text-base text-ink-600 leading-loose text-center space-y-4">
+            <p>
+              危険を察知する力は、知識ではなく「習慣」です。
+            </p>
+            <p>
+              具体的な場面を見て、自分で考え、言葉にする。
+              <br className="hidden md:block" />
+              その積み重ねが、現場での咄嗟の気づきにつながります。
+            </p>
+            <p>
+              だから「やったことがある」では足りない。
+              <br className="hidden md:block" />
+              短くていい、頻繁に、続けることが大事です。
+            </p>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ====== 4. Solution（既存「ヨチトレとは」を改修） ====== */
+
+function Solution() {
+  const features = [
     {
-      icon: <BrainCircuit className="w-5 h-5" strokeWidth={2.5} />,
-      title: "KY活動（危険予知活動）とは",
-      body: "作業手順に沿って「この場面で何が起きうるか」を事前に洗い出す活動です。手順のどこにリスクがあるかを把握し、対策を決めてから仕事に臨むことで、事故・災害を未然に防ぎます。",
+      icon: <Eye className="w-6 h-6" strokeWidth={2.5} />,
+      title: "具体的な現場シーンで考える",
+      body: "実際に起きた事例をもとにしたイラスト付きシートで、「この場面で何が起こりうるか」を自分ごととして考えられる。",
     },
     {
-      icon: <Eye className="w-5 h-5" strokeWidth={2.5} />,
-      title: "「危険感受性」を育てる",
-      body: "危険を危険として捉えられる感覚＝危険感受性。日常に慣れると鈍くなりがちなこの感覚を、繰り返しのトレーニングで研ぎ澄まし続けることが大切です。",
+      icon: <RefreshCw className="w-6 h-6" strokeWidth={2.5} />,
+      title: "繰り返せる設計",
+      body: "30テーマを収録。毎回違うシーンで、くり返し鍛えられる。「やり尽くした」にならない。",
     },
     {
-      icon: <Megaphone className="w-5 h-5" strokeWidth={2.5} />,
-      title: "予想外が起きたら「報告→再KY」",
-      body: "想定と異なる状況が発生したらすぐに上司に報告し、改めてKYを行います。「気づいたら声に出す」文化がチーム全体の安全力を底上げします。",
+      icon: <Zap className="w-6 h-6" strokeWidth={2.5} />,
+      title: "準備ゼロ、5分で完結",
+      body: "台本を読むだけで進行できる。担当者の負担なしで、すぐ始められる。",
     },
   ];
 
@@ -148,86 +214,29 @@ function AboutSection() {
     <section id="about" className="py-16 md:py-20 bg-white scroll-mt-16">
       <div className="max-w-4xl mx-auto px-4">
         <FadeIn>
-          <SectionHeading sub="危険「予知」の力を高める「トレ」ーニング教材">
-            ヨチトレとは
-          </SectionHeading>
+          <SectionHeading>ヨチトレが選ばれる理由</SectionHeading>
         </FadeIn>
-
-        {/* Name origin card */}
-        <FadeIn delay={0.05}>
-          <div className="card-pop-sm p-4 md:p-5 mb-5 bg-sage-50 text-center">
-            <p className="text-sm md:text-base font-black text-ink-800 leading-relaxed">
-              <span className="text-coral-500">ヨチ</span>
-              <span className="text-ink-400 text-xs">（危険予知）</span>
-              <span className="mx-1">+</span>
-              <span className="text-sage-600">トレ</span>
-              <span className="text-ink-400 text-xs">（トレーニング）</span>
-              <span className="mx-1">=</span>
-              <span className="text-ink-900">ヨチトレ</span>
-            </p>
-          </div>
-        </FadeIn>
-
-        {/* Summary card */}
-        <FadeIn delay={0.1}>
-          <div className="card-pop p-6 md:p-8 mb-6">
-            <p className="text-sm md:text-base text-ink-700 leading-relaxed">
-              仕事は毎回同じではないため、
-              <strong className="text-ink-900 font-black">起こり得ることを事前に想定</strong>
-              して事故につなげないことが大事です。
-              作業前に危険・注意点・対策を洗い出す
-              <strong className="text-ink-900 font-black">KY（危険予知）活動</strong>
-              ――その力を繰り返し鍛えるのが「ヨチトレ」です。
-            </p>
-          </div>
-        </FadeIn>
-
-        {/* "もっと詳しく" toggle */}
-        <FadeIn delay={0.15}>
-          <button
-            onClick={() => setDetailOpen(!detailOpen)}
-            className="btn-pop bg-sage-100 text-sage-800 px-5 py-2.5 text-sm gap-2 mx-auto flex mb-6"
-          >
-            <Info className="w-4 h-4" strokeWidth={3} />
-            {detailOpen ? "閉じる" : "もっと詳しく"}
-            <ChevronDown
-              className={`w-4 h-4 transition-transform ${detailOpen ? "rotate-180" : ""}`}
-              strokeWidth={3}
-            />
-          </button>
-        </FadeIn>
-
-        <AnimatePresence>
-          {detailOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pb-2">
-                {details.map((d, i) => (
-                  <div key={i} className="card-pop p-5 h-full">
-                    <div className="w-10 h-10 rounded-pop-sm bg-sage-100 border-2 border-sage-300 flex items-center justify-center text-sage-700 mb-3">
-                      {d.icon}
-                    </div>
-                    <p className="font-black text-sm text-ink-800 mb-2">{d.title}</p>
-                    <p className="text-xs text-ink-500 leading-relaxed">{d.body}</p>
-                  </div>
-                ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {features.map((f, i) => (
+            <FadeIn key={i} delay={i * 0.1}>
+              <div className="card-pop p-6 text-center h-full">
+                <div className="w-12 h-12 rounded-pop-sm bg-sage-100 border-2 border-sage-300 flex items-center justify-center mx-auto mb-4 text-sage-700">
+                  {f.icon}
+                </div>
+                <p className="font-black text-base text-ink-800 mb-3">{f.title}</p>
+                <p className="text-sm text-ink-500 leading-relaxed">{f.body}</p>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
-/* ====== 3. Stats Cards ====== */
+/* ====== 5. Evidence（既存「データで見る」を改修） ====== */
 
-function StatsCards() {
+function Evidence() {
   const cards = [
     {
       icon: <TrendingUp className="w-6 h-6" strokeWidth={3} />,
@@ -253,13 +262,22 @@ function StatsCards() {
   ];
 
   return (
-    <section id="data" className="py-16 md:py-20 bg-sage-50 border-y-3 border-ink-900 scroll-mt-16">
+    <section id="evidence" className="py-16 md:py-20 bg-sage-50 border-y-3 border-ink-900 scroll-mt-16">
       <div className="max-w-4xl mx-auto px-4">
         <FadeIn>
           <SectionHeading sub="厚生労働省データより">
-            データで見る労働災害
+            労働災害は、今も増え続けている。
           </SectionHeading>
         </FadeIn>
+
+        <FadeIn delay={0.05}>
+          <p className="text-sm md:text-base text-ink-600 text-center leading-relaxed max-w-xl mx-auto mb-10">
+            「うちの施設は大丈夫」——
+            <br className="hidden md:block" />
+            そう思っていても、数字は現実を示しています。
+          </p>
+        </FadeIn>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {cards.map((c, i) => (
             <FadeIn key={i} delay={i * 0.1}>
@@ -274,6 +292,19 @@ function StatsCards() {
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn delay={0.4}>
+          <div className="card-pop-sm p-5 mt-8 bg-white text-center">
+            <p className="text-sm text-ink-600 leading-relaxed">
+              転倒・腰痛のピークは午前中。
+              <br className="hidden md:block" />
+              つまり、<strong className="font-black text-ink-800">始業前に「今日の危険」を意識するだけで、</strong>
+              <br className="hidden md:block" />
+              事故のリスクを下げられる可能性があります。
+            </p>
+          </div>
+        </FadeIn>
+
         <p className="text-[11px] text-ink-400 text-center mt-5">
           出典：厚生労働省「社会福祉・介護事業における労働災害の発生状況」
         </p>
@@ -282,7 +313,7 @@ function StatsCards() {
   );
 }
 
-/* ====== 4. Sample Training (入浴介助事例) ====== */
+/* ====== 6. Try（既存「体験してみよう」を改修） ====== */
 
 function SampleTraining() {
   const [step, setStep] = useState(0); // 0=scene, 1=Q1, 2=Q2, 3=answer
@@ -306,9 +337,19 @@ function SampleTraining() {
     <section id="sample" className="py-16 md:py-20 bg-white scroll-mt-16">
       <div className="max-w-4xl mx-auto px-4">
         <FadeIn>
-          <SectionHeading sub="入浴介助の事例で、ヨチトレを体験">
-            体験してみよう
+          <SectionHeading>
+            実際に体験してみてください。
           </SectionHeading>
+        </FadeIn>
+
+        <FadeIn delay={0.05}>
+          <p className="text-sm md:text-base text-ink-600 text-center leading-relaxed max-w-xl mx-auto mb-10">
+            購入前に、ヨチトレがどんな教材かを体験できます。
+            <br className="hidden md:block" />
+            「具体的な場面を見て、考えて、気づく」——
+            <br className="hidden md:block" />
+            その感覚を、まず味わってみてください。
+          </p>
         </FadeIn>
 
         <FadeIn delay={0.1}>
@@ -458,7 +499,72 @@ function SampleTraining() {
   );
 }
 
-/* ====== 5. Contents ====== */
+/* ====== 7. HowToUse（既存「朝礼での使い方」を改修） ====== */
+
+function HowToUse() {
+  const scenes = ["朝礼（5分）", "安全委員会", "新人研修", "個人学習"];
+
+  const steps = [
+    {
+      num: "1",
+      icon: <BookOpen className="w-6 h-6" strokeWidth={2.5} />,
+      title: "今日の1枚を開く",
+      desc: "PDFを印刷するか、スライドをモニターに表示する。",
+    },
+    {
+      num: "2",
+      icon: <MessageSquare className="w-6 h-6" strokeWidth={2.5} />,
+      title: "考える・話し合う",
+      desc: "「何が気になる？」「どうすれば安心？」を書き出したり、声に出して話し合う。",
+    },
+    {
+      num: "3",
+      icon: <Lightbulb className="w-6 h-6" strokeWidth={2.5} />,
+      title: "気づきを共有・記録する",
+      desc: "記録テンプレートに書いて終了。たった5分、それだけでいい。",
+    },
+  ];
+
+  return (
+    <section id="usage" className="py-16 md:py-20 bg-sage-50 border-y-3 border-ink-900 scroll-mt-16">
+      <div className="max-w-4xl mx-auto px-4">
+        <FadeIn>
+          <SectionHeading>こんな場面で使えます。</SectionHeading>
+        </FadeIn>
+
+        <FadeIn delay={0.05}>
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+            {scenes.map((s) => (
+              <span
+                key={s}
+                className="inline-block text-xs font-bold bg-white text-ink-700 border-2 border-ink-200 px-4 py-1.5 rounded-full"
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {steps.map((s, i) => (
+            <FadeIn key={s.num} delay={i * 0.1}>
+              <div className="card-pop text-center p-6 h-full">
+                <div className="w-14 h-14 rounded-pop-sm bg-sage-400 border-3 border-ink-900 text-white font-black text-xl flex items-center justify-center mx-auto mb-4 shadow-pop-sm">
+                  {s.num}
+                </div>
+                <div className="mb-3 text-sage-600 flex justify-center">{s.icon}</div>
+                <p className="font-black text-base text-ink-800 mb-2">{s.title}</p>
+                <p className="text-xs text-ink-500 leading-relaxed">{s.desc}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ====== 8. Contents（既存「入っているもの」を改修 + プレビュー統合） ====== */
 
 function Contents() {
   const items = [
@@ -485,12 +591,18 @@ function Contents() {
     },
   ];
 
+  const previewItems = [
+    { label: "転倒リスク（居室）", placeholder: true },
+    { label: "移乗介助（ベッド→車いす）", placeholder: true },
+    { label: "入浴介助（浴室環境）", placeholder: true },
+  ];
+
   return (
     <section id="contents" className="py-16 md:py-20 bg-white scroll-mt-16">
       <div className="max-w-4xl mx-auto px-4">
         <FadeIn>
-          <SectionHeading sub="買い切り。追加課金なし。">
-            入っているもの
+          <SectionHeading sub="買い切り・追加課金なし。すぐ使えるものが、すべて揃っています。">
+            セット内容
           </SectionHeading>
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -513,78 +625,12 @@ function Contents() {
             </FadeIn>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
 
-/* ====== 6. Usage ====== */
-
-function Usage() {
-  const steps = [
-    {
-      num: "1",
-      icon: <BookOpen className="w-6 h-6" strokeWidth={2.5} />,
-      title: "今日の1枚を開く",
-      desc: "PDFを印刷、またはスライドをモニターに表示",
-    },
-    {
-      num: "2",
-      icon: <MessageSquare className="w-6 h-6" strokeWidth={2.5} />,
-      title: "考える・話し合う",
-      desc: "「何が気になる？」「どうすれば安心？」を書き出す",
-    },
-    {
-      num: "3",
-      icon: <Lightbulb className="w-6 h-6" strokeWidth={2.5} />,
-      title: "「今日の気づき」を共有",
-      desc: "記録テンプレに書いて終了。たった5分",
-    },
-  ];
-
-  return (
-    <section id="usage" className="py-16 md:py-20 bg-sage-50 border-y-3 border-ink-900 scroll-mt-16">
-      <div className="max-w-4xl mx-auto px-4">
-        <FadeIn>
-          <SectionHeading>朝礼での使い方（5分）</SectionHeading>
-        </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {steps.map((s, i) => (
-            <FadeIn key={s.num} delay={i * 0.1}>
-              <div className="card-pop text-center p-6 h-full">
-                <div className="w-14 h-14 rounded-pop-sm bg-sage-400 border-3 border-ink-900 text-white font-black text-xl flex items-center justify-center mx-auto mb-4 shadow-pop-sm">
-                  {s.num}
-                </div>
-                <div className="mb-3 text-sage-600 flex justify-center">{s.icon}</div>
-                <p className="font-black text-base text-ink-800 mb-2">{s.title}</p>
-                <p className="text-xs text-ink-500 leading-relaxed">{s.desc}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ====== 7. Preview ====== */
-
-function Preview() {
-  const previewItems = [
-    { label: "転倒リスク（居室）", placeholder: true },
-    { label: "移乗介助（ベッド→車いす）", placeholder: true },
-    { label: "入浴介助（浴室環境）", placeholder: true },
-  ];
-
-  return (
-    <section className="py-16 md:py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-4">
-        <FadeIn>
-          <SectionHeading sub="クリックで拡大表示できます">
-            教材プレビュー
-          </SectionHeading>
-        </FadeIn>
-        <FadeIn delay={0.1}>
+        {/* 教材プレビュー（旧 Preview セクションを統合） */}
+        <FadeIn delay={0.4}>
+          <p className="text-sm font-bold text-ink-500 text-center mt-12 mb-5">
+            実際の教材イメージ（クリックで拡大）
+          </p>
           <ImageModal items={previewItems} />
         </FadeIn>
       </div>
@@ -592,7 +638,7 @@ function Preview() {
   );
 }
 
-/* ====== 8. Pricing (2 Plans) ====== */
+/* ====== 9. Pricing ====== */
 
 function Pricing() {
   const plans = [
@@ -684,7 +730,7 @@ function Pricing() {
                     ))}
                   </ul>
 
-                  {/* CTA - fixed at bottom */}
+                  {/* CTA */}
                   <motion.a
                     href={plan.url}
                     whileHover={{ x: 2, y: 2 }}
@@ -701,7 +747,7 @@ function Pricing() {
         </div>
         <FadeIn delay={0.3}>
           <p className="text-center text-xs text-ink-400 mt-6">
-            いずれも買い切り。1購入＝1法人ライセンス（拠点数制限なし）。
+            買い切り・追加課金なし。同一法人内であれば、拠点数・スタッフ数に制限はありません。
           </p>
         </FadeIn>
       </div>
@@ -709,7 +755,7 @@ function Pricing() {
   );
 }
 
-/* ====== 9. FAQ ====== */
+/* ====== 10. FAQ ====== */
 
 function FAQ() {
   const faqs = [
@@ -736,6 +782,10 @@ function FAQ() {
     {
       q: "返品・キャンセルはできますか？",
       a: "デジタル商品の性質上、購入後の返品・返金は原則承っておりません。プレビュー画像で内容をご確認のうえ、ご購入ください。",
+    },
+    {
+      q: "どんな施設・業種に向いていますか？",
+      a: "現在は福祉・介護施設向けのコンテンツを中心に展開しています。転倒・移乗・入浴・腰痛・感染症など、介護現場でよく起きる事例を30テーマ収録しています。製造・建設など他業種向けコンテンツは今後追加予定です。",
     },
   ];
 
@@ -765,7 +815,7 @@ function FAQ() {
   );
 }
 
-/* ====== 10. Trust ====== */
+/* ====== Trust ====== */
 
 function Trust() {
   return (
@@ -811,21 +861,38 @@ function FinalCTA() {
       <div className="max-w-2xl mx-auto px-4 text-center">
         <FadeIn>
           <h2 className="text-xl md:text-2xl font-black mb-3 tracking-tight">
-            安全の気づきを、もっと手軽に。
+            「気づける人」が増えると、現場が変わる。
           </h2>
           <p className="text-sm text-ink-400 mb-8">
-            朝礼5分で完結。準備ゼロ、読むだけで気づきトレーニングが回せます。
+            まずは無料で体験してみてください。
+            <br />
+            5分で、ヨチトレの感覚がわかります。
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <PurchaseButton size="lg" />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+            <motion.a
+              href="/#sample"
+              whileHover={{ x: 2, y: 2 }}
+              whileTap={{ x: 4, y: 4 }}
+              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-4 text-base font-black border-3 border-ink-900 rounded-pop-sm bg-coral-500 text-white shadow-pop hover:shadow-pop-hover active:shadow-none transition-shadow"
+            >
+              <Eye className="w-5 h-5" strokeWidth={3} />
+              まずは体験してみる
+            </motion.a>
             <Link
-              href="/contact"
+              href="/#pricing"
               className="inline-flex items-center gap-1 text-sm font-bold text-ink-400 hover:text-sage-400 transition-colors"
             >
-              <Building2 className="w-4 h-4" />
-              法人でのご相談
+              <ShoppingCart className="w-4 h-4" />
+              購入・料金を見る
             </Link>
           </div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-1 text-sm font-bold text-ink-500 hover:text-sage-400 transition-colors"
+          >
+            <Building2 className="w-4 h-4" />
+            法人でのご相談はこちら
+          </Link>
         </FadeIn>
       </div>
     </section>
@@ -838,12 +905,13 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <AboutSection />
-      <StatsCards />
+      <Problem />
+      <Why />
+      <Solution />
+      <Evidence />
       <SampleTraining />
+      <HowToUse />
       <Contents />
-      <Usage />
-      <Preview />
       <Pricing />
       <FAQ />
       <Trust />

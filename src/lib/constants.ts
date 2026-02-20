@@ -25,8 +25,9 @@ export const PLAN_B_URL =
 
 export const NAV_LINKS = [
   { href: "/#about", label: "ヨチトレとは" },
-  { href: "/#data", label: "データで見る" },
+  { href: "/#evidence", label: "なぜヨチトレか" },
   { href: "/#sample", label: "体験" },
+  { href: "/#usage", label: "使い方" },
   { href: "/#pricing", label: "料金" },
   { href: "/#faq", label: "FAQ" },
 ] as const;
